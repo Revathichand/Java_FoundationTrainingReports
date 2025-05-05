@@ -109,13 +109,6 @@ FROM Pets P
 JOIN Shelters S ON P.ShelterID = S.ShelterID
 WHERE P.AvailableForAdoption = TRUE;
 
-SELECT 
-    DATE_FORMAT(DonationDate, '%M %Y') AS MonthYear,
-    SUM(DonationAmount) AS TotalDonation
-FROM Donations
-GROUP BY YEAR(DonationDate), MONTH(DonationDate)
-ORDER BY YEAR(DonationDate), MONTH(DonationDate);
-
 SELECT COUNT(*) AS TotalParticipants
 FROM Participants
 WHERE EventID IN (
